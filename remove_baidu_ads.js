@@ -6,6 +6,7 @@
 // @author       wwj1983 <wwj1983@gmail.com>
 // @homepageURL  https://github.com/roshanca/remove-baidu-ads
 // @supportURL   https://github.com/roshanca/remove-baidu-ads/issues
+// @updateURL    https://raw.githubusercontent.com/roshanca/remove-baidu-ads/master/remove_baidu_ads.js
 // @license      MIT
 // @match        http://www.baidu.com/s*
 // @match        https://www.baidu.com/s*
