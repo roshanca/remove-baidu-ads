@@ -1,16 +1,18 @@
 // ==UserScript==
-// @name         Remove Baidu Ads
-// @namespace    https://github.com/roshanca
-// @version      0.1.0
-// @description  Remove Baidu Ads
-// @author       wwj1983 <wwj1983@gmail.com>
-// @homepageURL  https://github.com/roshanca/remove-baidu-ads
-// @supportURL   https://github.com/roshanca/remove-baidu-ads/issues
-// @updateURL    https://raw.githubusercontent.com/roshanca/remove-baidu-ads/master/remove_baidu_ads.js
-// @license      MIT
-// @match        http://www.baidu.com/s*
-// @match        https://www.baidu.com/s*
-// @grant        none
+// @name            移除百度广告
+// @name:en         Remove Baidu Ads
+// @namespace       https://github.com/roshanca
+// @version         0.1.0
+// @description     移除百度搜索结果中的广告
+// @description:en  Remove Baidu Ads in search results
+// @author          wwj1983 <wwj1983@gmail.com>
+// @homepageURL     https://github.com/roshanca/remove-baidu-ads
+// @supportURL      https://github.com/roshanca/remove-baidu-ads/issues
+// @updateURL       https://raw.githubusercontent.com/roshanca/remove-baidu-ads/master/remove_baidu_ads.js
+// @license         MIT
+// @match           http://www.baidu.com/s*
+// @match           https://www.baidu.com/s*
+// @grant           none
 // ==/UserScript==
 
 (function() {
@@ -38,7 +40,7 @@
 
     clearBaiduAds();
 
-    // 表单提交
+    // 表单提交事件监听
     var searchForm = document.forms.f;
     searchForm.addEventListener('submit', () => {
         console.log('search');
@@ -52,6 +54,7 @@
         timeId = setTimeout(clearBaiduAds, 1000);
     });
 
+    // 仿 jQuery 可链式操作的包装集
     var $$ = function (selector) {
         return new W(selector);
     };
@@ -72,6 +75,7 @@
         return this;
     }
 
+    // 事件委托实现
     W.prototype.delegate = function (eventName, targetSelector, listener, capture) {
         for (let elem of this.elem) {
             elem.addEventListener(eventName, function (e) {
@@ -91,6 +95,7 @@
         }
     };
 
+    // 比对元素结点，返回比对结果：true 为一样，false 为不一样
     W.prototype.is = function(selector) {
         var ret;
         for (let target of this.elem) {
